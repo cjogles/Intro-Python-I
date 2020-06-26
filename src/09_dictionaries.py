@@ -35,13 +35,27 @@ waypoints = [
 
 # Add a new waypoint to the list
 # YOUR CODE HERE
+waypoints.append({
+    "lat": 34,
+    "lon": -122,
+    "name": "a fourth place"
+})
+import pprint
+pprint.pprint(waypoints)
 
 # Modify the dictionary with name "a place" such that its longitude
 # value is -130 and change its name to "not a real place"
 # Note: It's okay to access the dictionary using bracket notation on the
 # waypoints list.
-
 # YOUR CODE HERE
-
+waypoints[0] = ({
+    "lat": 43,   # Why when I delete this line, do I get an error with printing a lat value on line 61?
+    "lon": -130,
+    "name": "not a real place"
+})
+pprint.pprint(waypoints)
 # Write a loop that prints out all the field values for all the waypoints
 # YOUR CODE HERE
+
+for x in waypoints:
+    print("longitude: ", x["lon"], "\n", "latitude: ", x["lat"])
