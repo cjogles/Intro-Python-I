@@ -15,6 +15,7 @@ has the following keys:
  - name: a name string for this location
 """
 
+import pprint
 waypoints = [
     {
         "lat": 43,
@@ -40,7 +41,6 @@ waypoints.append({
     "lon": -122,
     "name": "a fourth place"
 })
-import pprint
 pprint.pprint(waypoints)
 
 # Modify the dictionary with name "a place" such that its longitude

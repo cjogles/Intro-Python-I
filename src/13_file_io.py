@@ -11,9 +11,9 @@ https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
 # YOUR CODE HERE
 import os
 path = (os.getcwd() + "\src\\foo.txt")
-f = open(path, "r");
+f = open(path, "r")
 print(f.read())
-f.close();
+f.close()
 
 # Open up a file called "bar.txt" (which doesn't exist yet) for
 # writing. Write three lines of arbitrary content to that file,
