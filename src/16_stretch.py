@@ -84,9 +84,18 @@ print(solution(13)) # should return string ==> "{number}is a prime number."
 import math
 
 def sieve_of_eratosthenes(num):
-    print("heyhey", math.floor(math.sqrt(num)))
-    for x in range(2, (math.floor(math.sqrt(num)))):
-        print(x, num)
+    # for all numbers N from 2 to sqrt(N):
+    #     if N is unmarked, THEN
+    #         N is prime so mark it
+    #         for all multiples of N (N < limit)
+    #             mark all multiples of N (they are composite)
+    marked = []
+    for x in range(2, (math.ceil(math.sqrt(num)))):
+        if (x not in marked):
+            marked.append(x)
+            for j in range(x, (num + 1)):
+                if ()
+        
         if (x == num):
             return "done"
 
