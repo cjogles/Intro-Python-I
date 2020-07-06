@@ -97,13 +97,11 @@ def sieve_of_eratosthenes(limit):
             candidates.discard(composite)
             composite += x
     return candidates
-
-print("*****", sys.argv[0])
-
 # now check number passed via command line
 args = sys.argv[1:]
 
 if len(args) != 1:
+    
     print("Expected one, and only one, argument.", file=sys.stderr)
     print("Usage:", file=sys.stderr)
     print(f"  {sys.argv[0]} <integer>", file=sys.stderr)
