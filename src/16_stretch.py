@@ -14,6 +14,7 @@
 # It doesn't matter what you leave beyond the returned length.
 
 # MY CODE
+import sys
 import math
 
 
@@ -87,8 +88,7 @@ def solution(num):
 
 
 def sieve_of_eratosthenes(limit):
-    composites = []
-    candidates = set([*range(2, limit)])
+    candidates = set([*range(2, limit+1)])
     for x in range(2, (limit+1)):
         if (x not in candidates):
             continue
@@ -96,10 +96,32 @@ def sieve_of_eratosthenes(limit):
         while composite < limit + 1:
             candidates.discard(composite)
             composite += x
-    return ("Here are your list of primes: ", candidates)
+    return candidates
+
+print("*****", sys.argv[0])
+
+# now check number passed via command line
+args = sys.argv[1:]
+
+if len(args) != 1:
+    print("Expected one, and only one, argument.", file=sys.stderr)
+    print("Usage:", file=sys.stderr)
+    print(f"  {sys.argv[0]} <integer>", file=sys.stderr)
+    exit(1)
+
+number = int(args[0])
+
+print("^^^^^", number)
+if number <= 0:
+    print("Number must be greater than 0 !", file=sys.stderr)
+    exit(2)
+
+primes_up_to_number = sieve_of_eratosthenes(number)
+
+print(str(number in primes_up_to_number))
 
 
-print(sieve_of_eratosthenes(45))  # 2, 3, 5, 7, 11
+# print(sieve_of_eratosthenes(45))  # 2, 3, 5, 7, 11
 # My explanation for this problem:
 # - Basically I just follow the sieve of eratosthenes algorithim to solve this problem. It works in the following way:
 # - All numbers from 2 through to the limit given are possible prime numbers. At the beginning, they are all considered "unmarked"
@@ -115,3 +137,6 @@ print(sieve_of_eratosthenes(45))  # 2, 3, 5, 7, 11
 #   you did with "3 and your on your way!"
 # - Eventually you'll get to an "unmarked" number whose square is greater then the original limit given at the beginning. Once you've reached
 #   this point that means the rest of the unmarked numbers ARE PRIME. Fill in the rest of them as prime and your done!
+
+
+
