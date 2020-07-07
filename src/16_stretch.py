@@ -66,7 +66,7 @@ def solution(num):
     return f"{num} is a prime number"
 
 # TEST
-# print(solution(13)) # should return string ==> "{number}is a prime number."
+print(solution(13)) # should return string ==> "{number}is a prime number."
 
 # My explanation for this problem:
 # - In order for a number to be considered "PRIME", it needs to be greater then 1, and its only factors can be 1 and itself.
@@ -87,36 +87,36 @@ def solution(num):
 # this algorithim finds all prime numbers up to a given limit
 
 
-def sieve_of_eratosthenes(limit):
-    candidates = set([*range(2, limit+1)])
-    for x in range(2, (limit+1)):
-        if (x not in candidates):
-            continue
-        composite = x + x
-        while composite < limit + 1:
-            candidates.discard(composite)
-            composite += x
-    return candidates
-# now check number passed via command line
-args = sys.argv[1:]
+# def sieve_of_eratosthenes(limit):
+#     candidates = set([*range(2, limit+1)])
+#     for x in range(2, (limit+1)):
+#         if (x not in candidates):
+#             continue
+#         composite = x + x
+#         while composite < limit + 1:
+#             candidates.discard(composite)
+#             composite += x
+#     return candidates
+# # now check number passed via command line
+# args = sys.argv[1:]
 
-if len(args) != 1:
+# if len(args) != 1:
     
-    print("Expected one, and only one, argument.", file=sys.stderr)
-    print("Usage:", file=sys.stderr)
-    print(f"  {sys.argv[0]} <integer>", file=sys.stderr)
-    exit(1)
+#     print("Expected one, and only one, argument.", file=sys.stderr)
+#     print("Usage:", file=sys.stderr)
+#     print(f"  {sys.argv[0]} <integer>", file=sys.stderr)
+#     exit(1)
 
-number = int(args[0])
+# number = int(args[0])
 
-print("^^^^^", number)
-if number <= 0:
-    print("Number must be greater than 0 !", file=sys.stderr)
-    exit(2)
+# print("^^^^^", number)
+# if number <= 0:
+#     print("Number must be greater than 0 !", file=sys.stderr)
+#     exit(2)
 
-primes_up_to_number = sieve_of_eratosthenes(number)
+# primes_up_to_number = sieve_of_eratosthenes(number)
 
-print(str(number in primes_up_to_number))
+# print(str(number in primes_up_to_number))
 
 
 # print(sieve_of_eratosthenes(45))  # 2, 3, 5, 7, 11
@@ -136,5 +136,21 @@ print(str(number in primes_up_to_number))
 # - Eventually you'll get to an "unmarked" number whose square is greater then the original limit given at the beginning. Once you've reached
 #   this point that means the rest of the unmarked numbers ARE PRIME. Fill in the rest of them as prime and your done!
 
+# when the function is invoked, first ensure that there are only two parameters given
+# insure that the two paramters given are both ints, or are both strings
+# if all the above is the case, you can now begin, if not, display an error message and instructions
+# if both are ints, concatenate as string
+# if both are strings, sum as ints
 
+# def silly_function(a, b):
+#     if type(a) and type(b) == int:
+#         print(str(a) + str(b))
+#         pass
+#     elif type(a) and type(b) == str:
+#         print(int(a) + int(b))
+#         pass
+#     else:
+#         print("none")
+
+# silly_function(2,3)
 

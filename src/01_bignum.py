@@ -3,4 +3,4 @@
 
 # YOUR CODE HERE
 
-print(65536**2)
+print(2**65536)
